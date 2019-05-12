@@ -1,0 +1,312 @@
+
+body{
+  font-family: 'Varela Round', sans-serif;
+  text-align: center;
+  margin: 0;
+  color:white;
+  background: rgb(219, 219, 219);
+}
+
+header{
+  color: white;
+  background: rgba(6, 6, 5, 0.85);
+  text-align: center;
+  position:  fixed;
+  width:100%;
+  z-index: 999;
+}
+a:hover{
+color: rgb(250, 118, 0);
+
+}
+/*-----Header and nav (mobile first)-----*/
+h1{
+  color: rgb(255, 255, 255)
+}
+
+.nav-toggle:checked ~ nav{
+  display:block;
+}
+.nav-toggle{
+  display: none; /*hides checkbox*/
+  
+}
+
+.nav-toggle-label{
+  position:absolute;
+  top:0;
+  left:0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: ''; /*doesnt show without*/
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+
+nav{ /*mobie view is first*/
+  position: absolute;
+  text-align: left; 
+  top:100%;
+  width: 100%;
+  left:0;
+  display: none;
+  background: rgba(6, 6, 5, 0.85);
+
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+nav a{
+  color:white;
+  text-decoration: none; /*/removes underline*/
+  font-size: 1.2em;
+}
+nav a:hover{
+  color: rgb(250, 118, 0);
+}
+
+
+/*-----Main Page-----*/
+.wrapper{
+  font-family: 'Noto Sans', sans-serif;
+  color: black;
+  position: relative;
+  padding-top: 5em;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper h1{
+  color:black;
+}
+main{
+  width: 100%;
+  padding-bottom: 5em;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main img{
+  max-width:80vw;
+ /* max-height: auto;*/
+}
+main h1{
+font-weight: 400;
+  font-size: 2em;
+}
+main p{
+  font-size: 1em;
+  margin: 1em;
+  width: 90%;
+}
+.cform{
+  font-family: 'Varela Round', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  
+}
+.sbutton{
+  background: rgb(10, 255, 0);
+  max-width:150px;
+  max-height: 50px;
+}
+.sbutton:hover{
+  background: rgb(14, 121, 7);
+
+}
+
+aside{
+  
+}
+p{
+  text-align: justify;
+}
+aside p{
+  text-align: center;
+}
+
+.collection{
+
+}
+.collection img {
+
+  max-height: 15em;
+  max-width: 15em;
+}
+
+
+/*-----footer-----*/
+footer{
+  position: relative;
+  background: rgba(6, 6, 5, 0.85);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer ul{
+  list-style: none;
+}
+
+
+footer a{
+  font-size:1.2em;
+  color: white;
+  text-decoration: none;
+}
+footer img{ 
+  height: 1em;
+ /* width: auto;*/
+}
+
+/* Desktop Size*/
+@media screen and (min-width: 900px){
+  /*Get rid of menue buttton*/
+  .nav-toggle-label {
+    display: none;
+  }
+  header{
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;    
+  }
+  .csy{
+    grid-column: 2/3;
+  }
+  nav{
+    position: relative;
+    text-align: left;
+    top: initial;
+    left: initial;
+    background: none;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+  nav ul {
+    display: flex;
+  }
+  nav li {
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-left: 2em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  nav a::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: rgb(250, 118, 0);
+    position: absolute;
+    bottom: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 200ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1,1);  
+  }
+  
+  .cform{
+    padding-left: 1em;  }
+
+  /*-----Footer-----*/
+  footer{
+    position: relative;
+    text-align: left;
+    top: initial;
+    left: initial;
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;  
+  }
+  footer h2{
+    grid-column: 2/3;
+  
+  }
+  footer ul{
+    display: flex;
+    justify-content: flex-end;
+  }
+  footer li{
+    margin-left: 2em;
+
+  }
+
+  footer a{
+    grid-column: 3/4
+  }
+  
+  /* -- main content*/
+  
+  .wrapper{
+    padding-top: 0;
+    display: grid;
+   grid-template-columns: .5fr 3fr 5em 1fr .5fr;
+  }
+main{
+   grid-column: 2/3;
+ flex-direction: column;
+  align-items: flex-start;  
+  
+  }
+  main p{
+    width: 100%;
+  }
+  main img{
+    margin-left: 1.5em;
+    max-width: 100%;
+  /*  max-height: auto;*/
+  }
+  main h1{
+margin-left: 25%;
+  }
+ aside{
+   text-align: left;
+    grid-column:  4/5
+  }
+  
+}
